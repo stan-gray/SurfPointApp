@@ -4,6 +4,9 @@ body {
     font-size: 1.2em;
     font-weight: 300;
 }
+nav a {
+    color: #1E6AA6;
+}
 .ihor {
     text-align: center
        
