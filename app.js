@@ -16,11 +16,12 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
+// console.log(process.env.DATABASEURL);
     
 // mongoose.Promise = global.Promise; //not Necessary, this just to avoid this error (node:3348) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
-// mongoose.connect('mongodb://localhost/yelp_camp_deployed', { useMongoClient: true, promiseLibrary: global.Promise });
+mongoose.connect(process.env.DATABASEURL);
 
-mongoose.connect("mongodb://callmeihor:red@ds227565.mlab.com:27565/slackmap");
+// mongoose.connect("mongodb://callmeihor:red@ds227565.mlab.com:27565/slackmap");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
