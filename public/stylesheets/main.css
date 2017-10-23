@@ -7,6 +7,23 @@ body {
 nav a {
     color: #1E6AA6;
 }
+#loginregister {
+    text-align: center;
+    font-weight: 300;
+}
+a:focus,
+a:hover{
+    text-decoration: none;
+}
+.navbar-header {
+    font-size: 1.7em;
+}
+.navbar-brand:hover {
+    color: #1E6AA6;
+}
+a.navbar-brand {
+    font-size: 0.6em;
+}
 .ihor {
     text-align: center
        
