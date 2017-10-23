@@ -11,7 +11,7 @@ router.get("/", function (req, res) {
        if (err) {
            console.log(err);
        } else {
-           res.render("campgrounds/index", {campgrounds: allCampgrounds}); //index.ejs
+           res.render("slackspots/index", {campgrounds: allCampgrounds}); //index.ejs
        }
     });
     
@@ -33,14 +33,14 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
             console.log(err);
         } else {
             console.log(newlyCreated);
-            res.redirect("/campgrounds"); //reDIRECT to our page
+            res.redirect("/slackspots"); //reDIRECT to our page
         }
     });
 });
 
 // NEW - show form to create new campground
 router.get("/new", middleware.isLoggedIn, function (req, res) {
-    res.render("campgrounds/new");
+    res.render("slackspots/new");
 });
 
 
@@ -50,12 +50,12 @@ router.get ("/:id", function(req, res) {
     Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
         if(err || !foundCampground){
             console.log(err);
-            req.flash('error', 'Sorry, that campground does not exist!');
-            return res.redirect('/campgrounds');
+            req.flash('error', 'Sorry, that slackspot does not exist!');
+            return res.redirect('/slackspots');
         }
         console.log(foundCampground)
         //render show template with that campground
-        res.render("campgrounds/show", {campground: foundCampground});
+        res.render("slackspots/show", {campground: foundCampground});
     });
 });
 
@@ -63,7 +63,7 @@ router.get ("/:id", function(req, res) {
 router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
     Campground.findById(req.params.id, function(err, foundCampground){
         // specific catch to break the app
-        res.render("campgrounds/edit", {campground: foundCampground});
+        res.render("slackspots/edit", {campground: foundCampground});
         });  
 });
 
@@ -72,9 +72,9 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
     //find and update the correct camp
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
        if(err) {
-           res.redirect("/campgrounds");
+           res.redirect("/slackspots");
        } else {
-           res.redirect("/campgrounds/" + req.params.id);
+           res.redirect("/slackspots/" + req.params.id);
        }
     });
     //redirect somewhere (show page)
@@ -83,9 +83,9 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
    Campground.findByIdAndRemove(req.params.id, function(err){
        if(err) {
-           res.redirect("/campgrounds");
+           res.redirect("/slackspots");
        } else {
-           res.redirect("/campgrounds");
+           res.redirect("/slackspots");
        }
    });
 });

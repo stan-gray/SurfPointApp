@@ -5,7 +5,7 @@
        <h1 style="text-align: center;">edit<%= %></h1>
         
         <div style="width: 45%; margin: 30px auto;">
-            <form action="/campgrounds/<%= campground_id%>/comments/<%= comment._id%>?_method=PUT" method="POST"> <!--we have 2 times id, so here "campground_id" without"."-->
+            <form action="/slackspots/<%= campground_id%>/comments/<%= comment._id%>?_method=PUT" method="POST"> <!--we have 2 times id, so here "campground_id" without"."-->
                 <div class="form-group">
                     <textarea rows="3" class="form-control" type="text" name="comment[text]" placeholder="comment here" required><%= comment.text %></textarea>
                 </div>
@@ -15,7 +15,7 @@
                 </div>
             </form>
             
-            <a href="/campgrounds">Go back</a>
+            <a href="/slackspots">Go back</a>
         </div>    
     </div>
 </div>

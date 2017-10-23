@@ -5,7 +5,7 @@
        <h1 style="text-align: center;">Add New Comment to <%= campground.name%></h1>
         
         <div style="width: 45%; margin: 30px auto;">
-            <form action="/campgrounds/<%= campground._id %>/comments" method="POST"> <!--when we submit the form we'll go to /campgrounds page-->
+            <form action="/slackspots/<%= campground._id %>/comments" method="POST"> <!--when we submit the form we'll go to /slackspots page-->
                 <div class="form-group">
                     <textarea rows="3" class="form-control" type="text" name="comment[text]" placeholder="comment here" required></textarea>
                 </div>
@@ -17,7 +17,7 @@
                 </div>
             </form>
             
-            <a href="/campgrounds">Go back</a>
+            <a href="/slackspots">Go back</a>
         </div>    
     </div>
 </div>

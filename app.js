@@ -59,7 +59,7 @@ app.use(function(req, res, next){
 
 
 app.use(indexRoutes);
-app.use("/campgrounds", campgroundRoutes); // prefix campgrounds.js all routes starts with "/campgrounds"
+app.use("/slackspots", campgroundRoutes); // prefix campgrounds.js all routes starts with "/slackspots"
 app.use(commentRoutes);
 
 app.get("*", function(req, res) {

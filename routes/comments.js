@@ -5,7 +5,7 @@ var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
 // comments new
-router.get("/campgrounds/:id/comments/new", middleware.isLoggedIn, function(req, res) {
+router.get("/slackspots/:id/comments/new", middleware.isLoggedIn, function(req, res) {
     //find campground by id
     Campground.findById(req.params.id, function(err, campground){
         if (err) {
@@ -16,12 +16,12 @@ router.get("/campgrounds/:id/comments/new", middleware.isLoggedIn, function(req,
     });
 });
 // comments create
-router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, res){
+router.post("/slackspots/:id/comments", middleware.isLoggedIn, function(req, res){
    //lookup campground usind ID
    Campground.findById(req.params.id, function(err, campground) {
        if(err) {
            console.log(err);
-           res.redirect("/campgrounds");
+           res.redirect("/slackspots");
        } else {
            Comment.create(req.body.comment, function(err, comment) {
                if (err) {
@@ -35,7 +35,7 @@ router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, re
                    comment.save();
                    campground.comments.push(comment);
                    campground.save();
-                   res.redirect('/campgrounds/' + campground._id);
+                   res.redirect('/slackspots/' + campground._id);
                }
            });
        }
@@ -45,7 +45,7 @@ router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, re
    //redirect campground show page
 });
 // EDIT COMMENTS
-router.get("/campgrounds/:id/comments/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
+router.get("/slackspots/:id/comments/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
     Comment.findById(req.params.comment_id, function(err, foundComment) {
         if (err) {
             res.redirect("back");
@@ -55,23 +55,23 @@ router.get("/campgrounds/:id/comments/:comment_id/edit", middleware.checkComment
     });
 });
 // COMMENT UPDATE
-router.put("/campgrounds/:id/comments/:comment_id", middleware.checkCommentOwnership, function (req, res){
+router.put("/slackspots/:id/comments/:comment_id", middleware.checkCommentOwnership, function (req, res){
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){ //req.body.comment from edit.ejs "comment[text]"
         if(err){
             res.redirect("back");
         } else {
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/slackspots/" + req.params.id);
         }
     }) 
 })
 // DESTROY COMMENT
-router.delete("/campgrounds/:id/comments/:comment_id", middleware.checkCommentOwnership, function(req, res){
+router.delete("/slackspots/:id/comments/:comment_id", middleware.checkCommentOwnership, function(req, res){
   Comment.findByIdAndRemove(req.params.comment_id, function(err){
       if(err) {
           res.redirect("back");
       } else {
           req.flash("success", "Comment deleted");
-          res.redirect("/campgrounds/" + req.params.id);
+          res.redirect("/slackspots/" + req.params.id);
       }
   });
 });
