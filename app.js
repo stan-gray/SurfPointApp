@@ -17,8 +17,11 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index")
 
     
-mongoose.Promise = global.Promise; //not Necessary, this just to avoid this error (node:3348) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
-mongoose.connect('mongodb://localhost/yelp_camp_deployed', { useMongoClient: true, promiseLibrary: global.Promise });
+// mongoose.Promise = global.Promise; //not Necessary, this just to avoid this error (node:3348) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
+// mongoose.connect('mongodb://localhost/yelp_camp_deployed', { useMongoClient: true, promiseLibrary: global.Promise });
+
+mongoose.connect("mongodb://callmeihor:red@ds227565.mlab.com:27565/slackmap");
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
