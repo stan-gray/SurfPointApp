@@ -4,6 +4,9 @@ body {
     font-size: 1.2em;
     font-weight: 300;
 }
+h1 {
+    font-weight: 300;
+}
 nav a {
     color: #1E6AA6;
 }
@@ -15,15 +18,7 @@ a:focus,
 a:hover{
     text-decoration: none;
 }
-.navbar-header {
-    font-size: 1.7em;
-}
-.navbar-brand:hover {
-    color: #1E6AA6;
-}
-a.navbar-brand {
-    font-size: 0.6em;
-}
+
 .ihor {
     text-align: center
        
@@ -33,15 +28,26 @@ a.navbar-brand {
 }
 .thumbnail img {
     width: 100%;
-    
 }
+
+.btn i {
+    line-height: normal;
+    vertical-align: text-bottom;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
 .btn {
     line-height: 40px;
 }
+
 .btn:active:focus,
 .btn:focus {
     outline: 0px auto;
 }
+
 .btncomment {
     font-size: 0.7rem;
     padding: 0 1.5rem;
@@ -53,10 +59,7 @@ a.navbar-brand {
     font-size: 1em;
 }
 
-.btn i {
-    line-height: normal;
-    vertical-align: text-bottom;
-}
+
 #img200 {
     height: 180px;
 }
@@ -80,9 +83,9 @@ a.navbar-brand {
 }
 
 
-.btn:hover {
-    color: #fff;
-}
+
+
+/*NAV----------------------------*/
 nav ul a {
     font-size: 1.2rem;
 }
@@ -96,4 +99,14 @@ nav ul i {
 .navbar-brand {
     padding-top: 22px;
 }
+.navbar-brand:hover {
+    color: #1E6AA6;
+}
+a.navbar-brand {
+    font-size: 0.6em;
+}
+.navbar-header {
+    font-size: 1.7em;
+}
+
 

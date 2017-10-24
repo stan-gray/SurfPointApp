@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-       <h1 style="text-align: center;">edit <strong><%= campground.name %></strong></h1>
+       <h1 style="text-align: center;">edit <%= campground.name %></h1>
         
         <div style="width: 50%; margin: 30px auto;">
             <form action="/slackspots/<%= campground._id %>?_method=PUT" method="POST"> <!--when we submit the form we'll go to /campgrounds page-->
