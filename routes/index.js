@@ -37,14 +37,14 @@ router.post("/login", passport.authenticate("local",
         successRedirect: "/slackspots",
         failureRedirect: "/login",
         failureFlash: true,
-        successFlash: 'Welcome to YelpCamp!'
+        successFlash: 'Welcome to SlackSpots!'
     }), function(req, res){
         
 });
 // logout
 router.get("/logout", function(req, res) {
     req.logout();
-    req.flash("success", "Logged you out");
+    req.flash("success", "See you later");
     res.redirect("/slackspots");
 })
 

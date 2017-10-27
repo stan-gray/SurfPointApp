@@ -17,7 +17,10 @@ nav a {
 #map {
     height: 550px;
     width: 100%;
-}dfsdgdsgdsfg
+}
+#jumbo {
+    width: 100%;
+}
 a:focus,
 a:hover{
     text-decoration: none;
@@ -28,7 +31,7 @@ a:hover{
        
 }
 .container {
-    width: 80%;
+    width: 75%;
 }
 .thumbnail img {
     width: 100%;
@@ -65,7 +68,7 @@ a:hover{
 
 
 #img200 {
-    height: 180px;
+    height: 170px;
 }
 #author {
     font-size: 0.8em;
