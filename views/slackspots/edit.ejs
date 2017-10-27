@@ -7,7 +7,7 @@
         <div style="width: 50%; margin: 30px auto;">
             <form action="/slackspots/<%= campground._id %>?_method=PUT" method="POST"> <!--when we submit the form we'll go to /campgrounds page-->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name"  value="<%= campground.name%>" required> <!--to have all the info in the form we need change placeholder to value=""-->
+                    <input class="form-control" type="text" name="name"  value="<%= campground.name%>" maxlength="27" required> <!--to have all the info in the form we need change placeholder to value=""-->
                 </div>
                 <!--<div class="form-group">-->
                 <!--    <input class="form-control" type="number" name="campground[price]" value="....................%= campground.price %>" min="0.01" step="0.01" required></input>-->
