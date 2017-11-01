@@ -7,15 +7,30 @@ var geocoder = require("geocoder");
 
 // INDEX
 router.get("/", function (req, res) {
-    // get all camps from DataBase
-    Campground.find({}, function(err, allCampgrounds) {
-       if (err) {
-           console.log(err);
-       } else {
-           res.render("slackspots/index", {campgrounds: allCampgrounds}); //index.ejs
-       }
-    });
-    
+    var noMatch = null;
+    // eval(require("locus")); //freeze the code to find problem
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+       Campground.find({name: regex}, function(err, allCampgrounds) {
+           if (err) {
+               console.log(err);
+           } else {
+               if(allCampgrounds.length < 1) {
+                   noMatch = "No SlackSpots matched, please try again.";
+               }
+               res.render("slackspots/index", {campgrounds: allCampgrounds, noMatch: noMatch}); //index.ejs
+           }
+        }); 
+    } else {
+        // get all camps from DataBase
+        Campground.find({}, function(err, allCampgrounds) {
+           if (err) {
+               console.log(err);
+           } else {
+               res.render("slackspots/index", {campgrounds: allCampgrounds, noMatch: noMatch}); //index.ejs
+           }
+        });
+    }
 });
 //CREATE |||||||| post all value from our inputs 
 router.post("/", middleware.isLoggedIn, function (req, res) {
@@ -102,6 +117,8 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
    });
 });
 
-
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
