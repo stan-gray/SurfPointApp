@@ -9,7 +9,7 @@ var geocoder = require("geocoder");
 router.get("/", function (req, res) {
     var noMatch = null;
     // eval(require("locus")); //freeze the code to find problem
-    if(req.query.search) {
+    if(req.query.search ) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
        Campground.find({name: regex}, function(err, allCampgrounds) {
            if (err) {
