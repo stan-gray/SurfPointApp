@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
                console.log(err);
            } else {
                if(allCampgrounds.length < 1) {
-                   noMatch = "No SlackSpots matched, please try again.";
+                   noMatch = "No SurfSpots matched, please try again.";
                }
                res.render("slackspots/index", {campgrounds: allCampgrounds, noMatch: noMatch}); //index.ejs
            }
@@ -71,7 +71,7 @@ router.get ("/:id", function(req, res) {
     Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
         if(err || !foundCampground){
             console.log(err);
-            req.flash('error', 'Sorry, that slackspot does not exist!');
+            req.flash('error', 'Sorry, that SurfSpot does not exist!');
             return res.redirect('/slackspots');
         }
         console.log(foundCampground)
