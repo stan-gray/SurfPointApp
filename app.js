@@ -22,8 +22,8 @@ var commentRoutes    = require("./routes/comments"),
 // mongoose.Promise = global.Promise; //not Necessary, this just to avoid this error (node:3348) DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
 // mongoose.connect('mongodb://localhost/yelp_camp_deployed', { useMongoClient: true, promiseLibrary: global.Promise });
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_deployed"
-mongoose.connect("mongodb://stan:X0glqNQ4@ds255265.mlab.com:55265/stancamp");
+// var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_deployed"
+mongoose.connect("mongodb://stan:X0glqNQ4@ds255265.mlab.com:55265/stancamp", { useMongoClient: true });
 // mongodb://stan:X0glqNQ4@ds255265.mlab.com:55265/stancamp
 // mongoose.connect("mongodb://callmeihor:red@ds227565.mlab.com:27565/slackmap");
 
