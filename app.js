@@ -23,8 +23,8 @@ var commentRoutes    = require("./routes/comments"),
 // mongoose.connect('mongodb://localhost/yelp_camp_deployed', { useMongoClient: true, promiseLibrary: global.Promise });
 
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_deployed"
-mongoose.connect(url);
-
+mongoose.connect("mongodb://stan:X0glqNQ4@ds255265.mlab.com:55265/stancamp");
+// mongodb://stan:X0glqNQ4@ds255265.mlab.com:55265/stancamp
 // mongoose.connect("mongodb://callmeihor:red@ds227565.mlab.com:27565/slackmap");
 
 
