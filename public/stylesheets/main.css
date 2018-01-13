@@ -23,8 +23,8 @@ nav a {
     color: #2BBBAD;
 }
 
-.jumbotron {
-    color: #79A4C6;
+header .jumbotron {
+    background-color:#79A4C6 !important;
 }
 a:focus,
 a:hover{
