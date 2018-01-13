@@ -20,6 +20,10 @@ nav a {
 }
 #jumbo {
     width: 100%;
+    color: #2BBBAD;
+}
+
+.jumbotron {
     color: #79A4C6;
 }
 a:focus,
