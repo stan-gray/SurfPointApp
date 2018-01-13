@@ -21,7 +21,7 @@ router.post("/register", function(req, res) {
             return res.redirect("register");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to SurfSpots " + user.username);
+            req.flash("success", "Welcome to Surf Point " + user.username);
             res.redirect("/slackspots");
         });
     });
@@ -37,7 +37,7 @@ router.post("/login", passport.authenticate("local",
         successRedirect: "/slackspots",
         failureRedirect: "/login",
         failureFlash: true,
-        successFlash: 'Welcome to SurfSpots!'
+        successFlash: 'Welcome to Surf Point!'
     }), function(req, res){
         
 });
